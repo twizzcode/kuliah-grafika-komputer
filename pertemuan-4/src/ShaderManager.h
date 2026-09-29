@@ -1,0 +1,24 @@
+#ifndef __SHADERMANAGER_H__
+#define __SHADERMANAGER_H__
+
+#pragma once
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+#include <iostream>
+#include <fstream>
+#include <string>
+
+class ShaderManager {
+private:
+    static ShaderManager* instance;
+    unsigned int shaderProgram;
+    
+public:
+    static ShaderManager* GetInstance();
+    void compileAndLink(const char* vertexFile,
+    const char* fragmentFile);
+    unsigned int getShaderProgram();
+    void destroy();
+};
+
+#endif // !__SHADERMANAGER_H__
